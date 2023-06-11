@@ -1,6 +1,7 @@
 # 安装
 
     pip install bilibili_toolman
+    pip install requests base58 pycryptodomex
 
 
 # 使用
