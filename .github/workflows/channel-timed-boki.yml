@@ -5,8 +5,8 @@
 name: 定时转载
 
 env:
-  # CHANNEL_URL :  'http://www.youtube.com/@EatwithBoki'
-  CHANNEL_URL :  'https://www.youtube.com/@hagnachannel'
+  CHANNEL_URL :  'https://www.youtube.com/@EatwithBoki'
+  # CHANNEL_URL :  'https://www.youtube.com/@hagnachannel'
   # 频道链接，如 https://www.youtube.com/user/devilleon7
   TITLE_FORMAT : '${title}'
   # 标题格式 (如：[转载][{uploader}]{title})
@@ -16,7 +16,7 @@ env:
   # 视频标签 (半角逗号隔开)
   THREAD_ID : 76
   # 视频分区 (查阅 README 文末分区表)
-  DATERANGE : 'now-1day'
+  DATERANGE : 'now-4day'
   # 视频上传时间时间窗口 - 格式可以为 YYmmdd,也可以用相对时间. 如：
   # e.g. now (下载今天上传的视频)
   # e.g. now-1day (下载昨天到今天上传的视频)
@@ -29,7 +29,7 @@ env:
 on:
   schedule:
     # 在这里修改 cron 定时配置；撤除注释后，此处为 每天中午 12 点触发检测
-    - cron: '0 12 * * *'
+    - cron: '0 12 */4 * *'
   workflow_dispatch:
 
 jobs:
