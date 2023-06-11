@@ -2,6 +2,7 @@
 
     pip install bilibili_toolman
 
+
 # 使用
 ## 以 Github Actions 转载视频：
 
@@ -10,11 +11,11 @@
 - [pip 安装 bilibili_toolman](#安装)
     - **Windows 用户**: 在 [Releases](https://github.com/mos9527/bilibili-toolman/releases) 可下载已打包 `.exe` 版本
 - 使用 Web 端 API
-    
+
         python -m bilibili_toolman --save --cookies "SESSDATA=8aafe8**********;bili_jct=4f39b**********"
     `SESSDATA`,`bili_jct` 可在XHR请求头中或`document.cookies`获得，这里不将阐述
 - 使用 上传助手 API
-        
+
         python -m bilibili_toolman --save --sms
     跟随输出操作即可（注：需要完成 Geetest 校验）
 - 凭据即输出的 Base64 编码内容
@@ -25,14 +26,14 @@
     - Name  : `SESSION`
     - Value : `此处为准备好的凭据`
 - *可选* 替换不同凭据上传、投稿
-   
+
     **指定上传凭据**
-    
+
     - Name  : `SESSION_UPLOAD`
     - Value : `此处为准备好的凭据`
-    
+
     **指定投稿凭据**
-    
+
     - Name  : `SESSION_SUBMIT`
     - Value : `此处为准备好的凭据`
 
@@ -57,7 +58,7 @@
 # bilisession.web 即 Web 端创作中心 API。在上传速度上会有优势
 # 注：投稿与上传*不需要*在同一个 Session 中完成
 # 不论 import 的是什么版本，登录态恢复时都会重新实例化登录态对应的 Session
->>> session = BiliSession.from_base64_string("H4sIADKW+2EC/5VVWW/bRhB2EF216...") 
+>>> session = BiliSession.from_base64_string("H4sIADKW+2EC/5VVWW/bRhB2EF216...")
 # 从凭据恢复登录态，详情见 准备凭据
 >>> endpoint_1,cid_1 = session.UploadVideo("本地视频01.mp4")
 ('n220208141kq78....', ...)
@@ -86,7 +87,7 @@
         title="多 P （P2)",
         video_endpoint=endpoint_2
     )
-)    
+)
 # 添加视频 (P)，注意仅父节点（稿件）描述会被显示；分 P 视频和父稿件同类型
 >>> cover = session.UploadCover('封面测试.png')
 >>> submission.cover_url = cover['data']['url']
@@ -186,23 +187,23 @@
                             特殊参数：
                                 playlistend - 对于播放列表、频道，下载到（时间顺序，新者在前）第 n 个视频为止
                                 playliststart - 对于播放列表、频道，从（时间顺序，新者在前）第 n 个视频开始下载
-                            
+
                                 daterange - 只下载在该参数指定时间窗口内的视频 (精确到毫秒)
                                     格式可以为 YYmmdd,也可以用相对时间. 如：
-                                    
+
                                     e.g. daterange=now; (下载今天上传的视频)
                                     e.g. daterange=now-1day; (下载昨天到今天上传的视频)
-                                    e.g. daterange=220430~220501 (下载 2022年4月30日~2022年5月1日 的视频)        
-                                
+                                    e.g. daterange=220430~220501 (下载 2022年4月30日~2022年5月1日 的视频)
+
                                 hardcode - 烧入硬字幕选项
                                     e.g. 启用    ..;hardcode;...
-                                    e.g. 换用字体 ..;hardcode=style:FontName=Segoe UI       
+                                    e.g. 换用字体 ..;hardcode=style:FontName=Segoe UI
                                     e.g. NV硬解码   ..;hardcode=input:-hwaccel cuda/output:-c:v h264_nvenc -crf 17 -b:v 5M
-                                    多个选项用 / 隔开   
+                                    多个选项用 / 隔开
                             e.g. --youtube "..." --opts "format=best&quiet=True&hardcode" --tags ...
                                 此外，针对视频对象，还提供其他变量:
                                     {id}
-                                    {title}    
+                                    {title}
                                     {descrption}
                                     {upload_date}
                                     {uploader}
@@ -215,7 +216,7 @@
                                     {avereage_rating}
                                     ...
                                 注：输入播放列表且多 P 时，稿件标题为播放列表标题，稿件描述仅为 `来自Youtube`
-                            
+
                             默认配置：不烧入字幕，下载最高质量音视频，下载字幕但不操作
 
     变量：
@@ -229,7 +230,7 @@
                     -       【韩文】替换韩文为特殊字符的标题
         {roma_korean_title}
                     -       【韩文】替换韩文为罗马音的标题 (需要安装 korean_romanizer)
-                    
+
     本工具支持将给定视频源转载至哔哩哔哩
 
     详见项目 README 以获取更多例程 ： github.com/greats3an/bilibili-toolman
