@@ -12,7 +12,7 @@ env:
   # 标题格式 (如：[转载][{uploader}]{title})
   DESC_FORMAT : '${desc}'
   # 描述格式 (如：{desc})
-  TAGS : '转载{title}{desc}'
+  TAGS : '转载{desc}'
   # 视频标签 (半角逗号隔开)
   THREAD_ID : 76
   # 视频分区 (查阅 README 文末分区表)
