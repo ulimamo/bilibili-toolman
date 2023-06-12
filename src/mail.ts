@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import { IEmailInfo } from './types.js'
+import { IEmailInfo } from './types'
 import dotenv from 'dotenv'
 dotenv.config()
 

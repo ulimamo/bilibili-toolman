@@ -2,11 +2,11 @@
 /* eslint-disable no-cond-assign */
 /* eslint-disable no-await-in-loop */
 import RSSParser from 'rss-parser';
-import { uploadWss } from './wss.js';
-import { glob } from './glob.js';
-import { sendMail } from './mail.js';
-import { IEmailInfo } from './types.js';
-import { download } from './download.js';
+import { uploadWss } from './wss';
+import { glob } from './glob';
+import { sendMail } from './mail';
+import { IEmailInfo } from './types';
+import { download } from './download';
 import dayjs from 'dayjs';
 
 import dotenv from 'dotenv';

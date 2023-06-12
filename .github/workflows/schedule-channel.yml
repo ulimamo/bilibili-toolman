@@ -37,12 +37,12 @@ jobs:
       run: |
         npm install
 
-    # - name: Build
-    #   run: |
-    #     tsc
+    - name: Build
+      run: |
+        npm run build
 
     - name: Run
       run: |
-        tsc && npm run start
+        npm run start
 
 
