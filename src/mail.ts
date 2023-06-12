@@ -15,7 +15,7 @@ export async function sendMail(sendInfo: IEmailInfo) {
     });
     let info = await transporter.sendMail({
         from: process.env.MAIL_ACCOUNT, // sender address
-        to: '1714845891@qq.com,708801696@qq.com', // list of receivers
+        to: process.env.SEND_TO_MAIL, // list of receivers
         subject: sendInfo.subject, // Subject line
         text: sendInfo.content, // html body
     });
