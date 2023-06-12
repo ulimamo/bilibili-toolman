@@ -8,12 +8,12 @@ import fs from 'fs-extra';
 const reg = /公共链接：(https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*))/;
 
 export async function uploadWss(filePath: string) {
+    const logPath = path.resolve(__dirname, './log', path.basename(filePath) + `${+new Date()}`);
+    await fs.ensureFile(logPath)
     let lp = execa(`python3`, [`${path.resolve(__dirname, './python/wss.py')}`, `upload`, `${filePath}`], {
         stdout: process.stdout,
         stderr: process.stderr,
     });
-    const logPath = path.resolve(__dirname, './log', path.basename(filePath) + `${+new Date()}`);
-    await fs.ensureFile(logPath)
     lp.pipeStdout?.(fs.createWriteStream(logPath, 'utf-8'));
     await lp;
     let out = fs.readFileSync(logPath, 'utf-8')
