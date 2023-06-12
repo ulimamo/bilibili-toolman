@@ -1,6 +1,6 @@
 import path from 'path';
 import { execa } from 'execa';
-import fs from 'fs';
+import fs from 'fs-extra';
 // import { fileURLToPath } from 'url';
 
 // const __filename = fileURLToPath(import.meta.url);
@@ -12,7 +12,8 @@ export async function uploadWss(filePath: string) {
         stdout: process.stdout,
         stderr: process.stderr,
     });
-    const logPath = path.resolve(__dirname, './log', filePath);
+    const logPath = path.resolve(__dirname, './log', path.basename(filePath) + `${+new Date()}`);
+    await fs.ensureFile(logPath)
     lp.pipeStdout?.(fs.createWriteStream(logPath, 'utf-8'));
     await lp;
     let out = fs.readFileSync(logPath, 'utf-8')
