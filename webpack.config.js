@@ -27,8 +27,9 @@ module.exports = {
     libraryTarget: 'commonjs2',
     clean: true,
   },
+  externalsPresets: { node: true },
   node: {
     __dirname: true,
-    __filename: true
+    __filename: true,
   }
 };
