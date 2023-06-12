@@ -50,7 +50,9 @@ async function main() {
     while ((item = list.pop())) {
         await download(item.id);
         let list = await glob(item.id);
+        if(list.length === 0) continue;
         const urlList = await Promise.all(list.map((filePath) => uploadWss(filePath)));
+        if(urlList.length === 0) continue;
         const emailInfo: IEmailInfo = {
             subject: `youtube 视频更新 ${item.author}`,
             content: [
