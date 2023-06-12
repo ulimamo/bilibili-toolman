@@ -16,7 +16,7 @@ export function download(id: string) {
             noCheckCertificates: true,
             noWarnings: true,
             progress: true,
-            preferFreeFormats: true,
+            // preferFreeFormats: true,
             // checkAllFormats: true,
             formatSort: 'ext',
             addHeader: ['referer:youtube.com', 'user-agent:googlebot'],

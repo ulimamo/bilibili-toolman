@@ -58,7 +58,7 @@ async function main() {
                 `youtube: ${item.author}`,
                 `时间：${item.isoDate}`,
                 `链接：https://www.youtube.com/watch?v=${item.id}`,
-                `文件：${urlList.join('、')}`,
+                `文件：${urlList.join('\n')}`,
             ].join('\n'),
         };
         await sendMail(emailInfo);

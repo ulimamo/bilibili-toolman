@@ -23,7 +23,6 @@ export async function uploadWss(filePath: string) {
     await lp;
     let out = Buffer.concat(chunks).toString('utf8');
     let link = reg.exec(out)?.[1];
-    console.log('wss out: ', out);
     console.log('wss link: ', link);
     if(link) return link;
     throw Error('上传失败');
