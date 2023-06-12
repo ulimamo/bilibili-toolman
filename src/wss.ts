@@ -1,9 +1,9 @@
 import path from 'path';
 import { execa } from 'execa';
-import { fileURLToPath } from 'url';
+// import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 const reg = /公共链接：(https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*))/;
 
 export async function uploadWss(filePath: string) {

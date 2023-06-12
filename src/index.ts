@@ -9,6 +9,9 @@ import { IEmailInfo } from './types.js';
 import { download } from './download.js';
 import dayjs from 'dayjs';
 
+import dotenv from 'dotenv';
+dotenv.config();
+
 interface VideoItem {
     title: string;
     isoDate: string;
@@ -21,8 +24,7 @@ const parser = new RSSParser({
     maxRedirects: 3,
 });
 
-const CHANNEL_ID = 'UCoLQZ4ZClFqVPCvvjuiUSRA';
-// const CHANNEL_ID = 'UCjsiAm35towfnFs9ixpjqmw';
+const CHANNEL_ID = process.env.CHANNEL_ID;
 
 async function getData(url: string): Promise<VideoItem[]> {
     const data = await parser.parseURL(url);
@@ -36,9 +38,10 @@ async function getData(url: string): Promise<VideoItem[]> {
 
 async function main() {
     const url = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
+
     let list = await getData(url);
     list = list.filter((item) => {
-        let uploadDate = dayjs(item.isoDate)
+        let uploadDate = dayjs(item.isoDate);
         let yesterday = dayjs().add(-1, 'day');
         // 一天内
         return uploadDate.isAfter(yesterday);
@@ -49,7 +52,7 @@ async function main() {
         let list = await glob(item.id);
         const urlList = await Promise.all(list.map((filePath) => uploadWss(filePath)));
         const emailInfo: IEmailInfo = {
-            subject:  `youtube 视频更新 ${item.author}`,
+            subject: `youtube 视频更新 ${item.author}`,
             content: [
                 `标题：${item.title}`,
                 `youtube: ${item.author}`,
