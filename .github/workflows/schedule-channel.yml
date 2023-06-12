@@ -22,6 +22,7 @@ jobs:
       with:
         python-version: '3.x'
         cache: 'pip'
+        cache-dependency-path: src/python/wss.py
 
     - name: Install python dependencies
       run: |
