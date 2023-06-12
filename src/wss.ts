@@ -13,6 +13,8 @@ export async function uploadWss(filePath: string) {
     });
     let out = result.stdout;
     let link = reg.exec(out)?.[1];
+    console.log('wss out: ', result.stdout);
+    console.log('wss link: ', link);
     if(link) return link;
     throw Error('上传失败');
 }
