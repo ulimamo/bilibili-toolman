@@ -10,7 +10,7 @@ env:
   MAIL_ACCOUNT: ${{ secrets.MAIL_ACCOUNT }}
   MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
   SEND_TO_MAIL: ${{ vars.SEND_TO_MAIL }}
-  FORCE_UPDATE: ${{ vars.FORCE_UPDATE }}
+  CHECK_ABOVE: ${{ vars.CHECK_ABOVE }}
 
 jobs:
   deploy:

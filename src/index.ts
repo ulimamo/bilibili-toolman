@@ -25,7 +25,7 @@ const parser = new RSSParser({
 });
 
 const CHANNEL_ID = process.env.CHANNEL_ID;
-const FORCE_UPDATE = !!Number(process.env.FORCE_UPDATE)
+const CHECK_ABOVE = Number(process.env.CHECK_ABOVE) || 1;
 
 async function getData(url: string): Promise<VideoItem[]> {
     const data = await parser.parseURL(url);
@@ -41,10 +41,10 @@ async function main() {
     const url = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
 
     let list = await getData(url);
-    const lastDay = FORCE_UPDATE ? dayjs().add(-10, 'day') : dayjs().add(-1, 'day');
+    const lastDay = dayjs().add(-CHECK_ABOVE, 'day');
     list = list.filter((item) => {
         let uploadDate = dayjs(item.isoDate);
-        // 一天内
+        // 默认一天内
         return uploadDate.isAfter(lastDay);
     });
     let item;
