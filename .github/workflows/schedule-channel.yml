@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  CHANNEL_ID: UCoLQZ4ZClFqVPCvvjuiUSRA
+  CHANNEL_ID: ${{ vars.CHANNEL1 }}
   MAIL_ACCOUNT: ${{ secrets.MAIL_ACCOUNT }}
   MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
   SEND_TO_MAIL: ${{ vars.SEND_TO_MAIL }}
