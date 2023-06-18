@@ -8,11 +8,11 @@ env:
   CHANNEL_URL :  'https://www.youtube.com/@EatwithBoki'
   # CHANNEL_URL :  'https://www.youtube.com/@hagnachannel'
   # 频道链接，如 https://www.youtube.com/user/devilleon7
-  TITLE_FORMAT : '${safe_korean_title}'
+  TITLE_FORMAT : '试试'
   # 标题格式 (如：[转载][{uploader}]{title})
-  DESC_FORMAT : '${desc}'
+  DESC_FORMAT : '试试'
   # 描述格式 (如：{desc})
-  TAGS : '转载{desc}'
+  TAGS : '转载'
   # 视频标签 (半角逗号隔开)
   THREAD_ID : 76
   # 视频分区 (查阅 README 文末分区表)
